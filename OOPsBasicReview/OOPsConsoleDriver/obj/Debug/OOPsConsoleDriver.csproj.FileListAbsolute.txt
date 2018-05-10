@@ -1,0 +1,7 @@
+C:\work\OOPsBasicReview\OOPsConsoleDriver\bin\Debug\OOPsConsoleDriver.exe.config
+C:\Users\jalejano1\Desktop\OOPsBasicReview\OOPsConsoleDriver\bin\Debug\OOPsConsoleDriver.exe.config
+C:\Users\jalejano1\Desktop\OOPsBasicReview\OOPsConsoleDriver\bin\Debug\OOPsConsoleDriver.exe
+C:\Users\jalejano1\Desktop\OOPsBasicReview\OOPsConsoleDriver\bin\Debug\OOPsConsoleDriver.pdb
+C:\Users\jalejano1\Desktop\OOPsBasicReview\OOPsConsoleDriver\obj\Debug\OOPsConsoleDriver.csproj.CoreCompileInputs.cache
+C:\Users\jalejano1\Desktop\OOPsBasicReview\OOPsConsoleDriver\obj\Debug\OOPsConsoleDriver.exe
+C:\Users\jalejano1\Desktop\OOPsBasicReview\OOPsConsoleDriver\obj\Debug\OOPsConsoleDriver.pdb
