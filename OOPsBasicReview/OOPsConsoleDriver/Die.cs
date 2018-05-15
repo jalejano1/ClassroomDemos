@@ -117,6 +117,7 @@ namespace OOPsConsoleDriver
             Sides = sides;
             FaceValue = facevalue;
             Color = color;
+            Roll();
         }
 
         //Behaviors (methods)
