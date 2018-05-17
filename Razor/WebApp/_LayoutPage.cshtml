@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Page.Title</title>
+</head>
+<body>  
+    <div>
+        @RenderSection("banner", required: true)
+        @RenderBody()
+        <br />
+        <hr style="line-height: 5px" />
+        @RenderSection("footer", required: false)
+    </div>
+</body>
+</html>
