@@ -1,0 +1,33 @@
+﻿@{
+    Page.Title = "Home";
+    Layout = "~/_LayoutPage.cshtml";
+}
+
+@section banner{
+<h1>hello</h1> }
+
+    <div class="col-md-4">
+        <p>
+            This text is not in a section on the content page. Therefore this text
+            is put in the RenderBody area of the layout page.
+            Any html tags or any text on in a section defaults to the RenderBody.
+        </p>
+    </div>
+    <div class="col-md-2">
+        <p>
+            This text is not in a section on the content page. Therefore this text
+            is put in the RenderBody area of the layout page.
+            Any html tags or any text on in a section defaults to the RenderBody.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            This text is not in a section on the content page. Therefore this text
+            is put in the RenderBody area of the layout page.
+            Any html tags or any text on in a section defaults to the RenderBody.
+        </p>
+    </div>
+<div class="row">
+@section footer{
+    <p>&copy; CPSC1517, Nait Today's date is @DateTime.Today.ToLongDateString() </p>}
+</div>
