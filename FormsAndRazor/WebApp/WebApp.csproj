@@ -113,6 +113,7 @@
     <Content Include="Controls\TextBoxes.cshtml" />
     <Content Include="Controls\Dropdown.cshtml" />
     <Content Include="Controls\CheckBox.cshtml" />
+    <Content Include="Controls\RadioButtons.cshtml" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
