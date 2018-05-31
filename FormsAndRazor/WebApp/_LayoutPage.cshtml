@@ -25,13 +25,25 @@
                 <!-- creating a dropdown menu-->
                 <li class="dropdown">
                     <!--this will be the menu root item-->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Controls
-                            <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Controls
+                        <b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Href("~/Controls/TextBoxes.cshtml")">TextBox</a></li>
                         <li><a href="@Href("~/Controls/Dropdown.cshtml")">Dropdown</a></li>
                         <li><a href="@Href("~/Controls/CheckBox.cshtml")">CheckBox</a></li>
                         <li><a href="@Href("~/Controls/RadioButtons.cshtml")">RadioButtons</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <!--this will be the menu root item-->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        DB Samples
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Href("~/DBpages/DB.cshtml")">Single Query</a></li>
                     </ul>
                 </li>
             </ul>

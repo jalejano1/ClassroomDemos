@@ -1,0 +1,80 @@
+﻿@{
+    Page.Title = "DB SIngle Query";
+    Layout = "~/_LayoutPage.cshtml";
+
+    //variable that are coded in the opening code block
+    //  are known throughout the ENTIRE page
+
+    var seachArg = Request.Form["SearchArg"];
+    var Formbutton = Request.Form["formButton"];
+    string regionid = "";
+    string regiondescription = "";
+
+    //process the sql query
+    // open a connection to the desired database 
+    //this is done to the connectio string config file 
+    var db = Database.Open("NWDB");
+
+    //create your sql command
+    //since the search argument value changes depending on what the user
+    //   entered, the command search value needs to be changeble 
+    //so to do this flexibility, we use a placeholder (@n) in your 
+    //  hardcoded command string, where n starts a 0, 1, 2, ...
+    var sqlcommand = "SELECT RegionID, RegionDescription "
+                   + "FROM Region "
+                   + "WHERE RegionID = @0";
+
+    //execute the sql command against the connected database
+    // QuerySingle() is used when there is 0 or 1 record expected from the database
+    // Query() is used when there is 0, 1 or more record(s) expected from the database
+    // QueryValue() is used when a single value is exepected from the database 
+    // RegionID is a primary key
+    var results = db.QuerySingle(sqlcommand, seachArg);
+}
+
+@section banner {
+<h1>Database: Single Query</h1>}
+
+<div>
+    @if (IsPost)
+    {
+        if (Formbutton.Equals("reset"))
+        {
+            seachArg = "";
+            regionid = "";
+            regiondescription = "";
+        }
+        else
+        {
+            // to test for no data results QuerySingle(), test for null
+            if (results == null)
+            {
+                <p><span style="color:firebrick">No region with the id of @seachArg</span></p>
+            }
+            else
+            {
+                //record was found
+                regionid = results[0].ToString();
+                regiondescription = results.RegionDescription;
+
+            }
+        }
+     }
+    <form id="theForm" action="" method="post">
+        <div class="col-md-3">
+            <label id="forSearchArg">Enter a Region ID: </label>
+            <input type="text" id="SearchArg" name="SearchArg" value="@seachArg" placeholder="Enter region id" />
+            <br /><br />
+            <button type="submit" name="formButton" id="formButton" value="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="formButton" id="formButton" value="reset" class="btn">Clear</button>
+        </div>
+        <div class="col-md-4">
+            <label id="ForRegionID">Region ID: </label>
+            <input type="text" id="RegionID" name="RegionID" value="@regionid" />
+            <br />
+            <label id="ForRegionDescription">Region Name: </label>
+            <input type="text" id="RegionDescription" name="RegionDescription" value="@regiondescription" />
+            <br />
+        </div>
+    </form>
+</div>
