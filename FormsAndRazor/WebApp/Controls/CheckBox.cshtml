@@ -3,5 +3,57 @@
     Layout = "~/_LayoutPage.cshtml";
 }
 @section banner{
-<h1>CheckBox</h1> }
+    <h1>CheckBox</h1> }
 
+<div>
+    @if (IsPost)
+    {
+        var checkBoxChoice = Request.Form["CheckBoxGroup"];
+
+        if (checkBoxChoice.IsEmpty())
+        {
+           <p><span style="color:firebrick">Make a selection from the list of platform</span></p>
+        }
+        else
+        {
+            // setup the delimiter as a character for use in dividing
+            //  the set of values that will be returned form the set
+            //  of the checkbox
+            //character are defined with single quotes
+            char[] delimiter = { ',' } ;
+
+            // use the .Split(delimiter ) mehtod to split up the
+            //  return string
+            //this method returns a string array that contains the 
+            // substrings in the string instance that are delimited
+            // by elements of a specified string or Unicode 
+
+
+            <p>
+                I see you like to use the following platform:
+                <ul>
+                    @foreach(var platform in checkBoxChoice.Split(delimiter))
+                    {
+                        <li>@platform</li>
+                    }
+                </ul>
+            </p>
+          
+        }
+    }
+
+    <form id="action" action="" method="post">
+        <div class="col-md-offset-1">
+            <label id="forCheckBoxGroup">Select your favourite gaming platform</label><br />
+            <input type="checkbox" name="CheckBoxGroup" value="PS4" />&nbsp;PS4<br />
+            <input type="checkbox" name="CheckBoxGroup" value="PC" />&nbsp;PC<br />
+            <input type="checkbox" name="CheckBoxGroup" value="Xbox one" />&nbsp;Xbox one<br />
+            <input type="checkbox" name="CheckBoxGroup" value="Nintendo 3DS" />&nbsp;3DS<br />
+            <input type="checkbox" name="CheckBoxGroup" value="Cell" />&nbsp;Cellphone<br />
+            <input type="checkbox" name="CheckBoxGroup" value="Ipad" />&nbsp;Ipad<br />
+            <input type="checkbox" name="CheckBoxGroup" value="WII" />&nbsp;WII<br />
+            <br />
+            <button type="submit" name="formbutton" class="btn btn-primary" value="submit">Submit</button>
+        </div>
+    </form>
+</div>

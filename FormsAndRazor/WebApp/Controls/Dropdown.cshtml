@@ -1,7 +1,58 @@
 ﻿@{
     Page.Title = "Dropdown";
     Layout = "~/_LayoutPage.cshtml";
+
+    var choice = Request.Form["CodingSample"];
 }
 @section banner{
-<h1>Dropdown</h1> }
+<h1>Dropdown (Select)</h1> }
 
+<div>
+    @if (IsPost)
+    {
+        switch (choice.ToUpper())
+        {
+            case "TEXTBOXES":
+                {
+                    Response.Redirect("TextBoxes.cshtml");
+                    break;
+                }
+            case "RADIOBUTTONS":
+                {
+                    Response.Redirect("RadioButtons.cshtml");
+                    break;
+                }
+            case "CHECKBOX":
+                {
+                    Response.Redirect("CheckBox.cshtml");
+                    break;
+                }
+            default:
+                {
+                    <p><span style="color:firebrick">Make a selection from both coding choices</span></p>
+                    break;
+                }
+        }
+
+    }
+    <form id="theForm" action="" method="post">
+        <div class="col-md-offset-1">
+            <label id="forCodingSample">Select the sample to view</label><br />
+            <!--The Select tag is use to create the dropdown control
+                Each item in the control is specified using the option tag
+                to set an item to be selected item , use the option tag
+                paramter Selected
+                if no item has been selected then that first option is the default
+                Option that is shown
+                Often you will see that the first choice is a prompt from the
+                control. Htis is referred to as a prompt line-->
+            <select name="CodingSample">
+                <option value="">Select ....</option>
+                <option value="TextBoxes">TextBoxes</option>
+                <option value="RadioButtons">RadioButtons</option>
+                <option value="CheckBox">CheckBoxes</option>
+            </select>
+            <button type="submit" name="formbutton" class="btn btn-primary" value="submit">Go to...</button>
+        </div>
+    </form>
+</div>
