@@ -76,3 +76,30 @@ C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debu
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.dll
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.pdb
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebApp.dll.config
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebApp.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebApp.pdb
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.Helpers.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.Mvc.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.Razor.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebMatrix.Data.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebMatrix.WebData.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.Helpers.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.Mvc.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.Razor.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebMatrix.Data.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebMatrix.WebData.xml
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csproj.CopyComplete
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.dll
+C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.pdb
