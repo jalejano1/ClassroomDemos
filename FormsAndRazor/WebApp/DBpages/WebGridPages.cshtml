@@ -1,0 +1,26 @@
+﻿@{
+    Page.Title = "WebGrid";
+    Layout = "~/_LayoutPage.cshtml";
+
+    //use tge Request.QueryString["xxxx"] method to capture data
+    //      that may be passed to this page
+    //reference the parameterid in the method
+    var cid = Request.QueryString["cid"];
+
+    //best practice
+    //if you expect a parameter then check that is was
+    //  actually passed
+    //if a parameter value was not receive your variable will be null
+    if (string.IsNullOrEmpty(cid))
+    {
+        Response.Redirect("MultiRecordQuery.cshtml");
+    }
+
+}
+@section banner {
+    <h1>Database: Filter Multi-Record Query</h1>}
+
+<div>
+    you passed in the value @cid
+</div>
+
