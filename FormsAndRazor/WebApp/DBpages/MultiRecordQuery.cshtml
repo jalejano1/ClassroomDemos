@@ -1,0 +1,63 @@
+﻿@{
+    Page.Title = "FilterLookup";
+    Layout = "~/_LayoutPage.cshtml";
+
+    //obtain a list of the categories from the database
+    //  info a variable (collection)
+    var db = Database.Open("NWDB");
+    var sqlcommand = "SELECT CategoryID, CategoryName "
+                   + "FROM Categories "
+                   + "ORDER BY CategoryName";
+
+    var results = db.Query(sqlcommand);
+
+
+}
+@section banner {
+    <h1>Database: Filter Multi-Record Query</h1>}
+
+<div class="col-md-offset-4">
+
+    @if(IsPost)
+    {
+        var categorychoice = Request.Form["CategoryList"];
+
+        if(categorychoice == "0")
+        {
+            <p><span style="color:firebrick">Please Select a Category</span></p>
+        }
+        else
+        {
+            //pass the category value to another page
+            //use Response.Redirect() to do this action
+            //REMEMBER the data will appear in your URL
+            //     so DO NOT pass sensitive data
+            //syntax
+            //Response.Redirect(pagename.cshtml?parameterid=value&anotherparameterid=anothervalue)
+            Response.Redirect("WebGridPages.cshtml?cid=" + categorychoice);
+        }
+    }
+    <form id="theForm" action="" method="post">
+        <label id="forCategoryList">Select Category</label>
+        <select id="CategoryList" name="CategoryList">
+            <option value="0">select...</option>
+            @foreach (var item in results)
+            {
+                // loop through the collection of records in results 
+                //create a line in the dropdownlist for each
+                // item in the collection(results)
+                //referencing of the data value in the item
+                // is done using either:
+                //  a) an index such as item[3] which is column 4
+                //  b) by property name of the collection item.xxxxxx
+                //both methods can be used in the process
+                //  at the same time
+                <option value="@item[0]">@item.CategoryName</option>
+            }
+
+        </select>
+        <button type="submit" id="formButton" name="formButton" value="submit" class="btn btn-primary">Products?</button>
+    </form>
+</div>
+
+

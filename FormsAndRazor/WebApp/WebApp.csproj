@@ -115,6 +115,8 @@
     <Content Include="Controls\CheckBox.cshtml" />
     <Content Include="Controls\RadioButtons.cshtml" />
     <Content Include="DBpages\DB.cshtml" />
+    <Content Include="DBpages\MultiRecordQuery.cshtml" />
+    <Content Include="DBpages\WebGridPages.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
