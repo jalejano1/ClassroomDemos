@@ -72,7 +72,6 @@ C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\Syst
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\System.Web.WebPages.Razor.xml
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebMatrix.Data.xml
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\bin\WebMatrix.WebData.xml
-C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.dll
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.pdb

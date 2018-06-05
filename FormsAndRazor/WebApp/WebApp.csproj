@@ -117,6 +117,7 @@
     <Content Include="DBpages\DB.cshtml" />
     <Content Include="DBpages\MultiRecordQuery.cshtml" />
     <Content Include="DBpages\WebGridPages.cshtml" />
+    <Content Include="DBpages\WebGridDestination.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -137,6 +138,7 @@
     </None>
     <Content Include="_LayoutPage.cshtml" />
     <Content Include="WebConnectionString.config" />
+    <Content Include="_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
