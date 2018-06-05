@@ -16,11 +16,50 @@
         Response.Redirect("MultiRecordQuery.cshtml");
     }
 
+    var db = Database.Open("NWDB");
+    var querycommand = "SELECT ProductID, ProductName, UnitPrice, UnitsInStock, Discontinued "
+                     + "FROM Products "
+                     + "WHERE CategoryID = @0";
+
+    var results = db.Query(querycommand, cid);
+    var queryvaluecommand = "SELECT CategoryName "
+                           + "FROM Categories "
+                           + "WHERE CategoryID = @0";
+    var categoryname = db.QueryValue(queryvaluecommand, cid);
+
+    //create the instance that will be used on the WebGrid control 
+    //at the time of WebGrid instance creation, you must supply the data collection 
+    var gridinstance = new WebGrid(results, rowsPerPage:5);
 }
 @section banner {
     <h1>Database: Filter Multi-Record Query</h1>}
 
 <div>
-    you passed in the value @cid
+    <div class="col-md-offset-1">
+        <span style="font-size:x-large"><strong>Products for @categoryname</strong></span>
+        
+        <!--Display the webgrid-->
+        
+        @gridinstance.GetHtml(
+             tableStyle: "table table-bordered table-striped table-hover",
+
+             mode: WebGridPagerModes.All,
+
+            columns: gridinstance.Columns(
+                //gridinstance.Column(columnName: "ProductID", header:"ID"),
+                gridinstance.Column(columnName: "ProductName", header: "Product"),
+                gridinstance.Column(columnName: "UnitPrice", header: "$",
+                         format:(item) => item.UnitPrice.ToString("0.00")),
+                gridinstance.Column(columnName: "UnitsInStock", header: "InStock"),
+                gridinstance.Column(columnName: "Discontinued", header: "Disc.",
+                         format: @<input name="Discontinued" type="checkbox" 
+                                         value="@item.Discontinued"
+                                                 @(item.Discontinued == true ? "Checked" : null)
+                                                 disabled="disabled"/>),
+                gridinstance.Column(header:"",
+                      format:@<text><a href="~/DBpages/WebGridDestination.cshtml?pid=@item.ProductID&pn=@item.ProductName"
+                                       onclick="return confirm('Are you sure you wish to view the product details of @item.ProductName')">View</a></text>)                                      
+                        ))
+    </div>
 </div>
 
