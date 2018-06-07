@@ -102,3 +102,4 @@ C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebAp
 C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.dll
 C:\Users\John Angelo Alejano\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.pdb
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\FormsAndRazor\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
