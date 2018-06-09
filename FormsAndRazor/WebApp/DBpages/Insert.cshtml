@@ -19,7 +19,8 @@
     var categoryquery = "SELECT CategoryID, CategoryName "
                       + "FROM Categories "
                       + "ORDER by 2";
-    
+    var SupplierList = db.Query(supplierquery);
+    var CategoryList = db.Query(categoryquery);
 
 }
 
@@ -68,13 +69,16 @@
                 var insertcommand = "INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) "
                                     + "Values(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
                 db.Execute(insertcommand, productname,
-                    string.IsNullOrEmpty(supplierID) ? null : supplierID,
-                    string.IsNullOrEmpty(categoryID) ? null : categoryID,
+                    supplierID.Equals("0") ? null : supplierID,
+                    categoryID.Equals("0") ? null : categoryID,
                     string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
                     string.IsNullOrEmpty(unitprice) ? null : unitprice,
                     string.IsNullOrEmpty(unitinstock) ? null : unitinstock,
                     string.IsNullOrEmpty(unitonorder) ? null : unitonorder,
                     string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel, 0);
+                <p class="col-sm-12 text-center">
+                    <span style="color:green"><strong>Product was added</strong></span>
+                </p>
 
             }
             catch (Exception ex)
@@ -87,20 +91,46 @@
     <form id="theFrom" action="" method="post">
         <div class="row">
             <div class="col-sm-5 text-right">
-                <label id="forProductName">Name:</label><br />
-                <label id="forSupplierID">Supplier:</label><br />
-                <label id="forCategoryID">Category:</label><br />
-                <label id="forQuantityPerUnit">Size:</label><br />
-                <label id="forUnitPrice">Price:</label><br />
-                <label id="forUnitInStock">QOH:</label><br />
-                <label id="forUnitOnOrder">QOO:</label><br />
-                <label id="forReorderLevel">ROL:</label><br />
-                <label id="forDiscontinued">Disc.:</label><br />
+                <label id="ProductName">Name:</label><br />
+                <label id="SupplierID">Supplier:</label><br />
+                <label id="CategoryID">Category:</label><br />
+                <label id="QuantityPerUnit">Size:</label><br />
+                <label id="UnitPrice">Price:</label><br />
+                <label id="UnitInStock">QOH:</label><br />
+                <label id="UnitOnOrder">QOO:</label><br />
+                <label id="ReorderLevel">ROL:</label><br />
+                <label id="Discontinued">Disc.:</label><br />
             </div>
             <div class="col-sm-7">
                 <input name="ProductName" type="text" value="@productname" title="Enter Product Name" placeholder="Product Name" /><br />
-                <input name="SupplierID" type="text" value="@supplierID" title="Enter Supplier ID" placeholder="Supplier ID" /><br />
-                <input name="CategoryID" type="text" value="@categoryID" title="Enter Category ID" placeholder="Category ID" /><br />
+                <select id="SupplierID" name="SupplierID"><option value="0">Select...</option>
+                    @foreach (var item in SupplierList)
+                    {
+                        if(item.SupplierID.ToString() == supplierID)
+                        {
+                            <option value="@item[0]" selected>@item.CompanyName</option>
+                        }
+                        else
+                        {
+                            <option value="@item[0]">@item.CompanyName</option>
+                        }
+                        
+                    }
+                    </select><br />
+                <select id="CategoryID" name="CategoryID"><option value="0">Select...</option>
+                    @foreach (var item in CategoryList)
+                    {
+                        if(item.CategoryID.ToString() == categoryID)
+                        {
+                            <option value="@item.CategoryID" selected>@item[1]</option>
+                        }
+                        else
+                        {
+                            <option value="@item.CategoryID">@item[1]</option>
+                        }
+                        
+                    }
+                    </select><br />
                 <input name="QuantityPerUnit" type="text" value="@quantityperunit" title="Enter Quantity Per Unit" placeholder="Quantity Per Unit" /><br />
                 <input name="UnitPrice" type="text" value="@unitprice" title="Enter Unit Price" placeholder="Price" /><br />
                 <input name="UnitsInStock" type="text" value="@unitinstock" title="Enter Unit In Stock" placeholder="Unit In Stock" /><br />
