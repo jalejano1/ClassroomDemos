@@ -118,6 +118,7 @@
     <Content Include="DBpages\MultiRecordQuery.cshtml" />
     <Content Include="DBpages\WebGridPages.cshtml" />
     <Content Include="DBpages\WebGridDestination.cshtml" />
+    <Content Include="DBpages\Insert.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

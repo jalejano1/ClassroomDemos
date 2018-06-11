@@ -1,0 +1,150 @@
+﻿@{
+    Page.Title = "Insert";
+    Layout = "~/_LayoutPage.cshtml";
+    var thebutton = Request.Form["formButton"];
+    var productname = "";
+    var supplierID = "";
+    var categoryID = "";
+    var quantityperunit = "";
+    var unitprice = "";
+    var unitinstock = "";
+    var unitonorder = "";
+    var reorderlevel = "";
+    var disc = "";
+
+    var db = Database.Open("NWDB");
+    var supplierquery = "SELECT SupplierID, CompanyName "
+                      + "FROM Suppliers "
+                      + "ORDER by 2";
+    var categoryquery = "SELECT CategoryID, CategoryName "
+                      + "FROM Categories "
+                      + "ORDER by 2";
+    var SupplierList = db.Query(supplierquery);
+    var CategoryList = db.Query(categoryquery);
+
+}
+
+@section banner {
+    <h1>Database: Inserting Data</h1>}
+
+<div>
+    <div class="alert alert-info">
+        <blockquote>
+            This form will demonstrate the create (insert) of CRUD. it will 
+            demostrate using bootstrap text alignment for setting up right align
+            text,
+            default left align controls and centered aligned submit buttons.
+            The input controls and their label text controls are in a 2 column
+            format. The submit buttons are centered on another row. The introduction
+            of the alert class. Tool tips are used. Review of Try/Catch.
+        </blockquote>
+    </div> 
+
+    @if(IsPost)
+    {
+        if(thebutton.Equals("clear"))
+        {
+            <p class="col-sm-12 text-center">Clear by user</p>
+        }
+        else
+        {
+            productname = Request.Form["ProductName"];
+            supplierID = Request.Form["SupplierID"];
+            categoryID = Request.Form["CategoryID"];
+            quantityperunit = Request.Form["QuantityPerUnit"];
+            unitprice = Request.Form["UnitPrice"];
+            unitinstock = Request.Form["UnitsInStock"];
+            unitonorder = Request.Form["UnitsOnOrder"];
+            reorderlevel = Request.Form["ReorderLevel"];
+
+            //if the checkbox is NOT checked the value returned is null
+            //if the checkbox is checked the value returned is the string "on"
+            disc = Request.Form["Discontinued"];
+
+            //add this data in the database
+            try
+            {
+                
+
+                var insertcommand = "INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) "
+                                    + "Values(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
+                db.Execute(insertcommand, productname,
+                    supplierID.Equals("0") ? null : supplierID,
+                    categoryID.Equals("0") ? null : categoryID,
+                    string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
+                    string.IsNullOrEmpty(unitprice) ? null : unitprice,
+                    string.IsNullOrEmpty(unitinstock) ? null : unitinstock,
+                    string.IsNullOrEmpty(unitonorder) ? null : unitonorder,
+                    string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel, 0);
+                <p class="col-sm-12 text-center">
+                    <span style="color:green"><strong>Product was added</strong></span>
+                </p>
+
+            }
+            catch (Exception ex)
+            {
+                <p class="col-sm-12 text-center"><span style="color:firebrick"><strong>@ex.Message</strong></span></p>
+            }
+
+        }
+    }
+    <form id="theFrom" action="" method="post">
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <label id="ProductName">Name:</label><br />
+                <label id="SupplierID">Supplier:</label><br />
+                <label id="CategoryID">Category:</label><br />
+                <label id="QuantityPerUnit">Size:</label><br />
+                <label id="UnitPrice">Price:</label><br />
+                <label id="UnitInStock">QOH:</label><br />
+                <label id="UnitOnOrder">QOO:</label><br />
+                <label id="ReorderLevel">ROL:</label><br />
+                <label id="Discontinued">Disc.:</label><br />
+            </div>
+            <div class="col-sm-7">
+                <input name="ProductName" type="text" value="@productname" title="Enter Product Name" placeholder="Product Name" /><br />
+                <select id="SupplierID" name="SupplierID"><option value="0">Select...</option>
+                    @foreach (var item in SupplierList)
+                    {
+                        if(item.SupplierID.ToString() == supplierID)
+                        {
+                            <option value="@item[0]" selected>@item.CompanyName</option>
+                        }
+                        else
+                        {
+                            <option value="@item[0]">@item.CompanyName</option>
+                        }
+                        
+                    }
+                    </select><br />
+                <select id="CategoryID" name="CategoryID"><option value="0">Select...</option>
+                    @foreach (var item in CategoryList)
+                    {
+                        if(item.CategoryID.ToString() == categoryID)
+                        {
+                            <option value="@item.CategoryID" selected>@item[1]</option>
+                        }
+                        else
+                        {
+                            <option value="@item.CategoryID">@item[1]</option>
+                        }
+                        
+                    }
+                    </select><br />
+                <input name="QuantityPerUnit" type="text" value="@quantityperunit" title="Enter Quantity Per Unit" placeholder="Quantity Per Unit" /><br />
+                <input name="UnitPrice" type="text" value="@unitprice" title="Enter Unit Price" placeholder="Price" /><br />
+                <input name="UnitsInStock" type="text" value="@unitinstock" title="Enter Unit In Stock" placeholder="Unit In Stock" /><br />
+                <input name="UnitsOnOrder" type="text" value="@unitonorder" title="Enter Unit On Order" placeholder="Unit On Order" /><br />
+                <input name="ReorderLevel" type="text" value="@reorderlevel" title="Enter Reorder Level" placeholder="Reorder Level" /><br />
+                <input name="Discontinued" type="checkbox" title="Enter Discontinued if checked" @(string.IsNullOrEmpty(disc)?"":"checked")/>(Discontinued if checked)<br />
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-12 text-center">
+                <button type="submit" name="formButton" value="submit" class="btn btn-primary" style="width:90px">Add</button>
+                &nbsp;&nbsp;
+                <button type="submit" name="formButton" value="clear" class="btn btn-default" style="width:90px">Clear</button>
+            </div>
+        </div>
+    </form>
+</div>
