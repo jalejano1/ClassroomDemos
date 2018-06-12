@@ -22,6 +22,28 @@
     var SupplierList = db.Query(supplierquery);
     var CategoryList = db.Query(categoryquery);
 
+    productname = Request.Form["ProductName"];
+    supplierID = Request.Form["SupplierID"];
+    categoryID = Request.Form["CategoryID"];
+    quantityperunit = Request.Form["QuantityPerUnit"];
+    unitprice = Request.Form["UnitPrice"];
+    unitinstock = Request.Form["UnitsInStock"];
+    unitonorder = Request.Form["UnitsOnOrder"];
+    reorderlevel = Request.Form["ReorderLevel"];
+
+    //if the checkbox is NOT checked the value returned is null
+    //if the checkbox is checked the value returned is the string "on"
+    disc = Request.Form["Discontinued"];
+
+
+    //https://www.mikesdotnetting.com/article/191/validation-in-razor-web-pages-2
+    //https://www.w3.org/WAI/tutorials/forms/labels/
+    Validation.Add("ProductName",
+        Validator.Required("You must put a product nname"),
+        Validator.StringLength(20, 1, "No more than 10 letters"));
+    Validation.Add("QuantityPerUnit",
+        Validator.StringLength(20, 1, "No more than 20 Characters"));
+
 }
 
 @section banner {
@@ -48,46 +70,42 @@
         }
         else
         {
-            productname = Request.Form["ProductName"];
-            supplierID = Request.Form["SupplierID"];
-            categoryID = Request.Form["CategoryID"];
-            quantityperunit = Request.Form["QuantityPerUnit"];
-            unitprice = Request.Form["UnitPrice"];
-            unitinstock = Request.Form["UnitsInStock"];
-            unitonorder = Request.Form["UnitsOnOrder"];
-            reorderlevel = Request.Form["ReorderLevel"];
-
-            //if the checkbox is NOT checked the value returned is null
-            //if the checkbox is checked the value returned is the string "on"
-            disc = Request.Form["Discontinued"];
-
-            //add this data in the database
-            try
+            if (Validation.IsValid())
             {
-                
 
-                var insertcommand = "INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) "
-                                    + "Values(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
-                db.Execute(insertcommand, productname,
-                    supplierID.Equals("0") ? null : supplierID,
-                    categoryID.Equals("0") ? null : categoryID,
-                    string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
-                    string.IsNullOrEmpty(unitprice) ? null : unitprice,
-                    string.IsNullOrEmpty(unitinstock) ? null : unitinstock,
-                    string.IsNullOrEmpty(unitonorder) ? null : unitonorder,
-                    string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel, 0);
+
+                //add this data in the database
+                try
+                {
+
+
+                    var insertcommand = "INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) "
+                                        + "Values(@0, @1, @2, @3, @4, @5, @6, @7, @8)";
+                    db.Execute(insertcommand, productname,
+                        supplierID.Equals("0") ? null : supplierID,
+                        categoryID.Equals("0") ? null : categoryID,
+                        string.IsNullOrEmpty(quantityperunit) ? null : quantityperunit,
+                        string.IsNullOrEmpty(unitprice) ? null : unitprice,
+                        string.IsNullOrEmpty(unitinstock) ? null : unitinstock,
+                        string.IsNullOrEmpty(unitonorder) ? null : unitonorder,
+                        string.IsNullOrEmpty(reorderlevel) ? null : reorderlevel, 0);
                 <p class="col-sm-12 text-center">
                     <span style="color:green"><strong>Product was added</strong></span>
                 </p>
 
-            }
-            catch (Exception ex)
-            {
+                }
+                catch (Exception ex)
+                {
                 <p class="col-sm-12 text-center"><span style="color:firebrick"><strong>@ex.Message</strong></span></p>
+                }
             }
 
         }
+
     }
+
+                @Html.ValidationSummary()
+
     <form id="theFrom" action="" method="post">
         <div class="row">
             <div class="col-sm-offset-5 text-left">
@@ -102,41 +120,45 @@
                 <label id="Discontinued">Disc.:</label><br />
             </div>
             <div class="col-sm-7">
-                <input name="ProductName" type="text" value="@productname" title="Enter Product Name" placeholder="Product Name" /><br />
-                <select id="SupplierID" name="SupplierID"><option value="0">Select...</option>
+
+                <input name="ProductName" type="text" value="@productname" title="Enter Product Name" placeholder="Product Name" />@Html.ValidationMessage("ProductName")<br />
+                <select id="SupplierID" name="SupplierID">
+                    <option value="0">Select...</option>
                     @foreach (var item in SupplierList)
-                    {
-                        if(item.SupplierID.ToString() == supplierID)
-                        {
-                            <option value="@item[0]" selected>@item.CompanyName</option>
-                        }
-                        else
-                        {
-                            <option value="@item[0]">@item.CompanyName</option>
-                        }
-                        
-                    }
-                    </select><br />
-                <select id="CategoryID" name="CategoryID"><option value="0">Select...</option>
+        {
+            if (item.SupplierID.ToString() == supplierID)
+            {
+                <option value="@item[0]" selected>@item.CompanyName</option>
+}
+else
+{
+            <option value="@item[0]">@item.CompanyName</option>
+}
+
+}
+                </select><br />
+                <select id="CategoryID" name="CategoryID">
+                    <option value="0">Select...</option>
                     @foreach (var item in CategoryList)
-                    {
-                        if(item.CategoryID.ToString() == categoryID)
-                        {
-                            <option value="@item.CategoryID" selected>@item[1]</option>
-                        }
-                        else
-                        {
-                            <option value="@item.CategoryID">@item[1]</option>
-                        }
-                        
-                    }
-                    </select><br />
-                <input name="QuantityPerUnit" type="text" value="@quantityperunit" title="Enter Quantity Per Unit" placeholder="Quantity Per Unit" /><br />
+        {
+            if (item.CategoryID.ToString() == categoryID)
+            {
+                <option value="@item.CategoryID" selected>@item[1]</option>
+}
+else
+{
+            <option value="@item.CategoryID">@item[1]</option>
+}
+
+}
+                </select><br />
+
+                <input name="QuantityPerUnit" type="text" value="@quantityperunit" title="Enter Quantity Per Unit" placeholder="Quantity Per Unit" />@Html.ValidationMessage("QuantityPerUnit")<br />
                 <input name="UnitPrice" type="text" value="@unitprice" title="Enter Unit Price" placeholder="Price" /><br />
                 <input name="UnitsInStock" type="text" value="@unitinstock" title="Enter Unit In Stock" placeholder="Unit In Stock" /><br />
                 <input name="UnitsOnOrder" type="text" value="@unitonorder" title="Enter Unit On Order" placeholder="Unit On Order" /><br />
                 <input name="ReorderLevel" type="text" value="@reorderlevel" title="Enter Reorder Level" placeholder="Reorder Level" /><br />
-                <input name="Discontinued" type="checkbox" title="Enter Discontinued if checked" @(string.IsNullOrEmpty(disc)?"":"checked")/>(Discontinued if checked)<br />
+                <input name="Discontinued" type="checkbox" title="Enter Discontinued if checked" @(string.IsNullOrEmpty(disc) ? "" : "checked") />(Discontinued if checked)<br />
             </div>
         </div>
         <div>
