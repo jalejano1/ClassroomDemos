@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="root node - this will be ignored">
+    <!--A siteMapNode is an item on your menu-->
+    <siteMapNode url="~/Default.aspx" title="Home"  description="" />
+    
+    <!--A dropdown menu
+        A dropdown menu has separate siteMapNode opening and closeing tags-->
+    <siteMapNode url="" title="Samples" description="">
+      <!--A siteMapNode here, is an item on your dropdown menu-->
+      <siteMapNode url="~/SamplePages/Hello.aspx" title="Hello" description="" />
+    </siteMapNode>
+    <siteMapNode url="~/About.aspx" title="About"  description="" />
+    <siteMapNode url="~/Contact.aspx" title="Contact"  description="" />
+  </siteMapNode>
+</siteMap>
