@@ -1,0 +1,28 @@
+﻿.grid-form {
+    display: grid;
+    grid-row-gap: 7px;
+    grid-template-columns: max-content 15px auto;
+    grid-column-gap: 10px;
+}
+
+.grid-form > * {
+    grid-column: 2 / span2;
+}
+
+.grid-form > label {
+    grid-column: 1;
+    text-align: right;
+}
+
+.grid-form > h3 {
+    grid-column: 1 / span3;
+}
+
+.grid-form > input[type=checkbox]{
+    grid-column: 2;
+}
+
+.grid-form > input[type=checkbox] + label {
+    grid-column: 3;
+    text-align: left;
+}

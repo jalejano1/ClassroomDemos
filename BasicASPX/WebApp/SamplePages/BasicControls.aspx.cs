@@ -35,8 +35,8 @@ namespace WebApp.SamplePages
 
                 //add data to he collection
                 DataCollection.Add(new DDLCLASS(1, "COMP1008"));
-                DataCollection.Add(new DDLCLASS(2, "DMIT1517"));
-                DataCollection.Add(new DDLCLASS(3, "CPSC1517"));
+                DataCollection.Add(new DDLCLASS(2, "CPSC1517"));
+                DataCollection.Add(new DDLCLASS(3, "DMIT1508"));
                 DataCollection.Add(new DDLCLASS(4, "DMIT2018"));
 
                 //usually lists are sorted
@@ -87,6 +87,21 @@ namespace WebApp.SamplePages
                 //SelectedValue returns the data value associated with the physical line **
                 //SelectedItem returns the data display associated with the phsical line
                 RadioButtonListChoice.SelectedValue = submitchoice;
+
+                if(submitchoice.Equals("2") || submitchoice.Equals("4"))
+                {
+                    CheckBoxChoice.Checked = true;
+                }
+                else
+                {
+                    CheckBoxChoice.Checked = false;
+                }
+
+                CollectionList.SelectedValue = submitchoice;
+
+                DisplayDataReadOnly.Text = CollectionList.SelectedItem.Text
+                    + " at index " + CollectionList.SelectedIndex.ToString()
+                    + " having a value of " + CollectionList.SelectedValue;
             }
         }
 
