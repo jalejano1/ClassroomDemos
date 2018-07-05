@@ -16,6 +16,29 @@
 
         </div>
     </div>
+
+    <asp:RequiredFieldValidator ID="RequiredFieldFirstName" runat="server" ErrorMessage="First Name is required" ControlToValidate="FirstName" SetFocusOnError="true" 
+         ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldLastName" runat="server" ErrorMessage="Last Name is required" ControlToValidate="LastName" SetFocusOnError="true" 
+         ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldStreetAddress1" runat="server" ErrorMessage="Street Address 1 is required" ControlToValidate="StreetAddress1" SetFocusOnError="true" 
+         ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldCity" runat="server" ErrorMessage="City is required" ControlToValidate="City" SetFocusOnError="true" 
+         ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldEmailAddress" runat="server" ErrorMessage="Email Address is required" ControlToValidate="EmailAddress" SetFocusOnError="true" 
+         ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionEmailAddress" runat="server" ErrorMessage="Invalid Email Address" ControlToValidate="EmailAddress"
+         SetFocusOnError="true" ForeColor="Firebrick" Display="None" ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldPostalCode" runat="server" ErrorMessage="Postalcode is required" ControlToValidate="PostalCode" SetFocusOnError="true" 
+         ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionPostalCode" runat="server" ErrorMessage="Invalid Postal code (sample T6T6T6)" ControlToValidate="PostalCode"
+         SetFocusOnError="true" ForeColor="Firebrick" Display="None" ValidationExpression="[a-zA-Z][0-9][a-zA-Z][0-9][a-zA-Z][0-9]"></asp:RegularExpressionValidator>
+
+    <div class="row">
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+             HeaderText = "Correct the following concerns and resubmit."
+              CssClass ="Alert alert danger"/>
+    </div>
     <div class="grid-form">
         <h3>Contest Entry</h3>
         <asp:Label ID="Label1" runat="server" Text="First Name"
@@ -78,8 +101,8 @@
             <asp:TextBox ID="CheckAnswer" runat="server" ></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="Submit" runat="server" Text="Submit"  />&nbsp;&nbsp;
-            <asp:Button ID="Clear" runat="server" Text="Clear"  />
+            <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click"  />&nbsp;&nbsp;
+            <asp:Button ID="Clear" runat="server" Text="Clear" OnClick="Clear_Click" CausesValidation="False" />
         </p>
                
         <asp:Label ID="Message" runat="server" Text="bob" ></asp:Label>

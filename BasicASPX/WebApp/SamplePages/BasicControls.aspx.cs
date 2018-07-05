@@ -107,7 +107,32 @@ namespace WebApp.SamplePages
 
         protected void LinkButtonSubmitChoice_Click(object sender, EventArgs e)
         {
-            MessageLabel.Text = "You Submit";
+            if(CollectionList.SelectedIndex == 0)
+            {
+                MessageLabel.Text = "Please selected a course";
+            }
+            else
+            {
+                string ddlselection = CollectionList.SelectedValue;
+
+                TextBoxNumberChoice.Text = ddlselection;
+
+                RadioButtonListChoice.SelectedValue = ddlselection;
+
+                if (ddlselection.Equals("2") || ddlselection.Equals("4"))
+                {
+                    CheckBoxChoice.Checked = true;
+                }
+                else
+                {
+                    CheckBoxChoice.Checked = false;
+                }
+                DisplayDataReadOnly.Text = CollectionList.SelectedItem.Text
+                        + " at index " + CollectionList.SelectedIndex.ToString()
+                        + " having a value of " + CollectionList.SelectedValue;
+
+            }
+
         }
 
         protected void TextBoxNumberChoice_TextChanged(object sender, EventArgs e)
