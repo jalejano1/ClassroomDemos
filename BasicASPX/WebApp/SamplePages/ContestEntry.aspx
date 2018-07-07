@@ -33,6 +33,15 @@
          ForeColor="Firebrick" Display="None"></asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionPostalCode" runat="server" ErrorMessage="Invalid Postal code (sample T6T6T6)" ControlToValidate="PostalCode"
          SetFocusOnError="true" ForeColor="Firebrick" Display="None" ValidationExpression="[a-zA-Z][0-9][a-zA-Z][0-9][a-zA-Z][0-9]"></asp:RegularExpressionValidator>
+<%--<asp:RangeValidator ID="RangeSomefield" runat="server" ErrorMessage="Some field value is out of range (0-100)" ControlToValidate="SomeField" SetFocusOnError="true" ForeColor="Firebrick" Display="None"
+         MinimumValue="0.0" MaximumValue="100.0" Type="Double"></asp:RangeValidator>--%>
+    <%--<asp:CompareValidator ID="CompareVersion1" runat="server" ErrorMessage="Version 1 is wrong data type" ControlToValidate="Version1" SetFocusOnError="true" ForeColor="Firebrick"
+       Display="None" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
+     <asp:CompareValidator ID="CompareVersion2" runat="server" ErrorMessage="Version 2 Value is incorrect" ControlToValidate="Version2" SetFocusOnError="true" ForeColor="Firebrick"
+       Display="None" type="Currency"></asp:CompareValidator>--%>
+     <asp:CompareValidator ID="CompareCheckAnswer" runat="server" ErrorMessage="Skill testing answer incorrect" ControlToValidate="CheckAnswer" SetFocusOnError="true" ForeColor="Firebrick"
+       Display="None" ValueToCompare="15" type="string"></asp:CompareValidator>
+
 
     <div class="row">
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
@@ -84,7 +93,7 @@
                 AssociatedControlID="EmailAddress"></asp:Label>
         <asp:TextBox ID="EmailAddress" runat="server" 
             ToolTip="Enter your email address"
-                TextMode="Email"></asp:TextBox> 
+                ></asp:TextBox> 
 
         <asp:Label ID="Label9" runat="server" Text="Agree to Terms"
             AssociatedControlID="Terms"></asp:Label>
@@ -106,6 +115,8 @@
         </p>
                
         <asp:Label ID="Message" runat="server" Text="bob" ></asp:Label>
+
+        <asp:GridView ID="ContestEntries" runat="server"></asp:GridView>
       </div>
     
 </asp:Content>

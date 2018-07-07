@@ -40,15 +40,6 @@ namespace WebApp.SamplePages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldStreetAddress1;
         
         /// <summary>
-        /// RequiredFieldStreetAddress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldStreetAddress2;
-        
-        /// <summary>
         /// RequiredFieldCity control.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionPostalCode;
+        
+        /// <summary>
+        /// CompareCheckAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareCheckAnswer;
         
         /// <summary>
         /// ValidationSummary1 control.
@@ -299,5 +299,14 @@ namespace WebApp.SamplePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Message;
+        
+        /// <summary>
+        /// ContestEntries control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ContestEntries;
     }
 }
