@@ -148,6 +148,7 @@
     <Content Include="SamplePages\BasicControls.aspx" />
     <Content Include="SamplePages\ContestEntry.aspx" />
     <Content Include="SamplePages\Hello.aspx" />
+    <Content Include="SamplePages\JobApplication.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -233,6 +234,13 @@
     </Compile>
     <Compile Include="SamplePages\Hello.aspx.designer.cs">
       <DependentUpon>Hello.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\JobApplication.aspx.cs">
+      <DependentUpon>JobApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\JobApplication.aspx.designer.cs">
+      <DependentUpon>JobApplication.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

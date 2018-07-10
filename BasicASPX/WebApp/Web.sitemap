@@ -11,6 +11,7 @@
       <siteMapNode url="~/SamplePages/Hello.aspx" title="Hello" description="" />
       <siteMapNode url="~/SamplePages/BasicControls.aspx" title="Basic Controls" description="" />
       <siteMapNode url="~/SamplePages/ContestEntry.aspx" title="CSS Grid" description="" />
+      <siteMapNode url="~/SamplePages/JobApplication.aspx" title="Job Application" description="" />
     </siteMapNode>
     <siteMapNode url="~/About.aspx" title="About"  description="" />
     <siteMapNode url="~/Contact.aspx" title="Contact"  description="" />

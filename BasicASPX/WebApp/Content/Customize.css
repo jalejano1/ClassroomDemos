@@ -26,3 +26,23 @@
     grid-column: 3;
     text-align: left;
 }
+.checkboxgrid-form {
+    display: grid;
+    grid-template-columns: 15px auto;
+    grid-column-gap: 2px;
+}
+
+    .checkboxgrid-form > * {
+        grid-column: 1 / span 2;
+    }
+
+    .checkboxgrid-form > input[type=checkbox] {
+        grid-column: 1;
+        margin-top: 0px;
+    }
+
+        .checkboxgrid-form > input[type=checkbox] + label {
+            grid-column: 2;
+            text-align: left;
+            margin-top: 2px;
+        }
