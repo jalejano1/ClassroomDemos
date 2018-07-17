@@ -1,0 +1,11 @@
+C:\Users\dwelch\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\bin\Debug\Northwind.Data.dll
+C:\Users\dwelch\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\bin\Debug\Northwind.Data.pdb
+C:\Users\dwelch\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.csprojResolveAssemblyReference.cache
+C:\Users\dwelch\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.csproj.CoreCompileInputs.cache
+C:\Users\dwelch\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.dll
+C:\Users\dwelch\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.pdb
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\bin\Debug\Northwind.Data.dll
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\bin\Debug\Northwind.Data.pdb
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.csproj.CoreCompileInputs.cache
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.dll
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.pdb
