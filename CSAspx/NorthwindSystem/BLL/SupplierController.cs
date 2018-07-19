@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 using Northwind.Data.Entities;
 using NorthwindSystem.DAL;
 #endregion
+
 namespace NorthwindSystem.BLL
 {
-    public class CategoryController
+    public class SupplierController
     {
-        public List<Category> Categories_List()
+        public List<Supplier> Supplier_List()
         {
             using (var context = new NorthwindContext())
             {
-                return context.Categories.ToList();
+                return context.Suppliers.ToList();
             }
         }
-
     }
 }

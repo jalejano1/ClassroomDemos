@@ -59,7 +59,22 @@ namespace WebApp.SamplePages
         public void BindSupplierList()
         {
             //TODO: code the method to load the SupplierList control
-
+            try
+            {
+                SupplierController sysmgr = new SupplierController();
+                List<Supplier> info = sysmgr.Supplier_List();
+                info.Sort((x, y) => x.CompanyName.CompareTo(y.CompanyName));
+                SupplierList.DataSource = info;
+                SupplierList.DataTextField = nameof(Supplier.CompanyName);
+                SupplierList.DataValueField = nameof(Supplier.SupplierID);
+                SupplierList.DataBind();
+                SupplierList.Items.Insert(0, "select ...");
+            }
+            catch (Exception ex)
+            {
+                errormsgs.Add("File Error: " + GetInnerException(ex).Message);
+                LoadMessageDisplay(errormsgs, "alert alert-warning");
+            }
         }
 
         public void BindCategoryList()
@@ -110,6 +125,79 @@ namespace WebApp.SamplePages
         protected void SearchProduct_Click(object sender, EventArgs e)
         {
             //TODO: code this method to lookup and display the selected product
+
+            //do you have something to search for
+            if(ProductList.SelectedIndex == 0)
+            {
+                errormsgs.Add("Select a product to fetch");
+                LoadMessageDisplay(errormsgs, "alert alert-warning");
+            }
+            else
+            {
+                try
+                {
+                    ProductController sysmgr = new ProductController();
+                    Product info = sysmgr.Products_GetProducts(int.Parse(ProductList.SelectedValue));
+                    //single record data checked null
+                    //multi-record data checked .Count
+
+                    if (info == null)
+                    {
+                        errormsgs.Add("Product was not found. Select and try again");
+                        LoadMessageDisplay(errormsgs, "alert alert-warning");
+                        BindProductList();
+
+                    }
+                    else
+                    {
+                        ProductID.Text = info.ProductID.ToString();
+                        ProductName.Text = info.ProductName;
+                        SupplierList.SelectedValue = info.SupplierID == null ? "select ..." : info.SupplierID.ToString();
+                        CategoryList.SelectedValue = info.CategoryID == null ? "select ..." : info.CategoryID.ToString();
+                        QuantityPerUnit.Text = info.QuantityPerUnit == null ? "" : info.QuantityPerUnit;
+                        UnitPrice.Text = info.UnitPrice == null ? "" : string.Format("{0:0.00}", info.UnitPrice);
+                        UnitsInStock.Text = info.UnitsInStock == null ? "" : info.UnitsInStock.ToString();
+                        UnitsOnOrder.Text = info.UnitsOnOrder == null ? "" : info.UnitsOnOrder.ToString();
+                        ReorderLevel.Text = info.ReorderLevel == null ? "" : info.ReorderLevel.ToString();
+                        Discontinued.Checked = info.Discontinued;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    errormsgs.Add("File Error: " + GetInnerException(ex).Message);
+                    LoadMessageDisplay(errormsgs, "alert alert-warning");
+                }
+            }
+        }
+
+        protected void Add_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Clear_Click(object sender, EventArgs e)
+        {
+            ProductList.ClearSelection();
+            ProductID.Text = "";
+            ProductName.Text = "";
+            SupplierList.ClearSelection();
+            CategoryList.ClearSelection();
+            QuantityPerUnit.Text = "";
+            UnitPrice.Text = "";
+            UnitsInStock.Text = "";
+            UnitsOnOrder.Text = "";
+            ReorderLevel.Text = "";
+            Discontinued.Checked = false;
         }
     }
 }

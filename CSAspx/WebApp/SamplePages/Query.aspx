@@ -66,5 +66,10 @@
             <asp:CheckBox ID="Discontinued" runat="server" Text="(discontinued if checked)" />
         </div>
     </div>
-
+    <div class="row col-md-offset-2">
+        <asp:Button ID="Add" runat="server" Text="Add" height="26px" OnClick="Add_Click" width="60px" /> &nbsp;&nbsp;
+        <asp:Button ID="Update" runat="server" Text="Update" height="26px" OnClick="Update_Click" width="60px" />&nbsp;&nbsp;
+        <asp:Button ID="Delete" runat="server" Text="Delete" height="26px" OnClick="Delete_Click" width="60px" />&nbsp;&nbsp;
+        <asp:Button ID="Clear" runat="server" Text="Clear" OnClick="Clear_Click" />&nbsp;&nbsp;
+    </div>
 </asp:Content>
