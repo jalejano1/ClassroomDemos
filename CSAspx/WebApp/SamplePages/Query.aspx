@@ -23,7 +23,7 @@
             <asp:Label ID="label1" runat="server" AssociatedControlID="ProductList"
                 text="Select a product to manage:"></asp:Label>
             <asp:DropDownList ID="ProductList" runat="server"></asp:DropDownList>
-             <asp:Button ID="SearchProduct" runat="server" OnClick="SearchProduct_Click" text="Fetch"></asp:Button>
+             <asp:Button ID="SearchProduct" runat="server" OnClick="SearchProduct_Click" text="Fetch" CausesValidation="false"></asp:Button>
             <br/>
             <asp:Label ID="Label2" runat="server" AssociatedControlID="ProductID" 
                 text="ID:"></asp:Label>
@@ -69,7 +69,7 @@
     <div class="row col-md-offset-2">
         <asp:Button ID="Add" runat="server" Text="Add" height="26px" OnClick="Add_Click" width="60px" /> &nbsp;&nbsp;
         <asp:Button ID="Update" runat="server" Text="Update" height="26px" OnClick="Update_Click" width="60px" />&nbsp;&nbsp;
-        <asp:Button ID="Delete" runat="server" Text="Delete" height="26px" OnClick="Delete_Click" width="60px" />&nbsp;&nbsp;
-        <asp:Button ID="Clear" runat="server" Text="Clear" OnClick="Clear_Click" />&nbsp;&nbsp;
+        <asp:Button ID="Delete" runat="server" Text="Delete" height="26px" OnClick="Delete_Click" width="60px" CausesValidation="false"/>&nbsp;&nbsp;
+        <asp:Button ID="Clear" runat="server" Text="Clear" OnClick="Clear_Click" CausesValidation="false"/>&nbsp;&nbsp;
     </div>
 </asp:Content>
