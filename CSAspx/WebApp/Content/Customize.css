@@ -1,59 +1,82 @@
-﻿/* CSS-Grid form formatting
-    grid specifies that CSS-Grid is used
-    gap distance between row/column
-    template-columns allows one to specify the physical of each column in the grid
-*/
-.grid-form {
-    display: grid;
-    grid-row-gap: 7px;
-    grid-template-columns: max-content 15px auto;
-    grid-column-gap: 10px;
-}
-/* the > * means everything within grid-form
-    the grid-column has 2 parameter values column to start in / span 2 more columns (in total the row will have 3 columns)
-*/
-.grid-form > * {
-    grid-column: 2 / span 2;
+﻿/*Filter Search inline formatting*/
+.bs-grid {
+    line-height: 2.4;
 }
 
-/* refining items within grid-form using specific html tag names
-    any label tag within grid-form will start in column 1
-*/
-.grid-form > label {
-    grid-column: 1;
-    text-align: right;
+.bs-grid label:after {
+    content: ':';
 }
 
-.grid-form > h3 {
+.bs-grid a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
+}
+
+.bs-grid a:hover {
+    text-decoration: none;
+}
+
+.bs-grid a.disabled {
+    background-color: #ffffff;
+    border-color: #cccccc;
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.bs-grid input, .bs-grid select {
+    display: block;
+    width: auto;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.bs-grid .form-inline input, .bs-grid .form-inline select {
+    display: inline-block;
+}
+
+/* CSS-Grid form formatting*/
+
+.grid-form > .legend {
     grid-column: 1 / span 3;
+    width: auto;
+    padding: 5px 0;
 }
 
-.grid-form > input[type=checkbox]{
-    grid-column: 2;
-}
-
-.grid-form > input[type=checkbox] + label {
-        grid-column: 3;
-        text-align: left;
-}
-
-.checkboxgrid-form {
-    display: grid;
-    grid-template-columns: 15px auto;
-    grid-column-gap: 2px;
-}
-
-.checkboxgrid-form > * {
-    grid-column: 1 / span 2;
-}
-
-.checkboxgrid-form > input[type=checkbox] {
-    grid-column: 1;
-    margin-top: 0px;
-}
-
-.checkboxgrid-form > input[type=checkbox] + label {
-    grid-column: 2;
-    text-align: left;
-    margin-top: 2px;
+summary:after {
+    content: 'Click to change';
+    font-style: italic;
 }

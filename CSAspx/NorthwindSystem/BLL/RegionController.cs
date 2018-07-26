@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 #region Additional Namespaces
 using Northwind.Data.Entities;
-using Northwind.Data.Views;
 using NorthwindSystem.DAL;
-#endregion 
+using System.Data.SqlClient;
+#endregion
 
 namespace NorthwindSystem.BLL
 {
-    public class SupplierController
+    public class RegionController
     {
-        public List<Supplier> Suppliers_List()
+        public List<Region> Region_List()
         {
             //need to connect to the Context class
             //this connection will be done in a transaction coding group
@@ -23,19 +22,19 @@ namespace NorthwindSystem.BLL
             {
                 //via EnityFrame, make a request for all records,
                 //all attributes from the specified DbSet property
-                return context.Suppliers.ToList();
+                return context.Regions.ToList();
             }
         }
 
-        public List<SupplierCategories> Suppliers_GetCategories(int suppilerid)
+        public Region Region_Get(int regionid)
         {
+            //return the record from the database via the DbSet collection
+            //where the pkey matches the supplied value
             using (var context = new NorthwindContext())
             {
-                IEnumerable<SupplierCategories> results =
-                    context.Database.SqlQuery<SupplierCategories>("Suppliers_GetCategories @SupplierID",
-                                    new SqlParameter("SupplierID", suppilerid));
-                return results.ToList();
+                return context.Regions.Find(regionid);
             }
         }
+
     }
 }

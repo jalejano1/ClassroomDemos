@@ -9,3 +9,4 @@ C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\bin\Deb
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.csproj.CoreCompileInputs.cache
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.dll
 C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.pdb
+C:\Users\jalejano1\Documents\GitHub\ClassroomDemos\CSAspx\Northwind.Data\obj\Debug\Northwind.Data.csprojResolveAssemblyReference.cache
