@@ -151,6 +151,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="SamplePages\CRUDFilterSearch.aspx" />
     <Content Include="SamplePages\FilterSearches.aspx" />
     <Content Include="SamplePages\Query.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -219,6 +220,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SamplePages\CRUDFilterSearch.aspx.cs">
+      <DependentUpon>CRUDFilterSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\CRUDFilterSearch.aspx.designer.cs">
+      <DependentUpon>CRUDFilterSearch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\FilterSearches.aspx.cs">
       <DependentUpon>FilterSearches.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

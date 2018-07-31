@@ -26,6 +26,15 @@ namespace NorthwindSystem.BLL
                 return context.Suppliers.ToList();
             }
         }
+        public Supplier Suppliers_GetSupplier(int supplierid)
+        {
+            //return the record from the database via the DbSet collection
+            //where the pkey matches the supplied value
+            using (var context = new NorthwindContext())
+            {
+                return context.Suppliers.Find(supplierid);
+            }
+        }
 
         public List<SupplierCategories> Suppliers_GetCategories(int suppilerid)
         {
@@ -34,6 +43,16 @@ namespace NorthwindSystem.BLL
                 IEnumerable<SupplierCategories> results =
                     context.Database.SqlQuery<SupplierCategories>("Suppliers_GetCategories @SupplierID",
                                     new SqlParameter("SupplierID", suppilerid));
+                return results.ToList();
+            }
+        }
+        public List<Supplier> Suppliers_GetByPartialCompanyName(string partialname)
+        {
+            using (var context = new NorthwindContext())
+            {
+                IEnumerable<Supplier> results =
+                           context.Database.SqlQuery<Supplier>("Suppliers_GetByPartialCompanyName @PartialName",
+                                           new SqlParameter("PartialName", partialname));
                 return results.ToList();
             }
         }
